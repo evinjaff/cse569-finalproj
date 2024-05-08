@@ -24,6 +24,9 @@ class AbstractState {
         
         // Main function to advance the state based on an abstract action
         virtual AbstractState * advanceState(AbstractAction) = 0;
+    
+        virtual void printState() = 0;
         
+        virtual int getNumParameters() = 0;
     
 };

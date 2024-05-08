@@ -25,18 +25,27 @@ class GenesisState : public AbstractState {
     
     // Variables
     char * RAM [4096];
-    float temperature = 69.6;
+    float temperature = 88.6;
     float supply_voltage = 3.3;
+    
+    bool is_fault = false;
+    bool in_exception_handling = false;
+    
+    int cycles_in_exception = 0;
     
     std::string buffer = "Empty so far";
     
-    float set_temperature = 69.6;
+    float set_temperature = 100;
     float set_supply_voltage = 3.3;
     
     //Virtual Overrides
     AbstractState * advanceState(AbstractAction) override;
     
+    void printState() override;
+    
     void updateState(float temp, float supply_voltage);
+    
+    int getNumParameters() override;
     
     std::string readstdio() override;
     

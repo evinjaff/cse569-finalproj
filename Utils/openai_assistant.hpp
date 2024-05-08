@@ -8,6 +8,7 @@
 #include <string>
 #include <curl/curl.h>
 #include <iostream>
+#include "../LLMfuzzer/State.hpp"
 
 class OpenAI_Assistant {
 public:
@@ -19,6 +20,8 @@ public:
     
     // Starts a conversation with the specified assistant
     void start_conversation(const std::string& assistantName);
+    
+    std::string offline_call( AbstractState * GameState, int num_parameters );
     
 private:
     std::string apiKey; // API key for OpenAI
